@@ -21,14 +21,14 @@ Build out all of the methods listed in the deliverables. The methods are listed 
 
 Writing error-free code is more important than completing all of the deliverables listed. You should be testing your code in the console as you write.
 
-Similarly, messy code that works is better than clean code that doesn't. First, prioritize getting things working. Then, if there is time at the end, refactor your code to adhere to best practices.
+Similarly, messy code that works is better than clean code that doesn't. First, prioritize getting things working. Then, if there is time at the end, refdev your code to adhere to best practices.
 
 **Before you submit!** Save and run your code to verify that it works as you expect. If you have any methods that are not working yet, feel free to leave comments describing your progress.
 
 ## What You Already Have
 The starter code has migrations and models for the initial `Company` and `Dev` models, and seed data for some `Company` instances and `Dev` instances.
 
-You will need to create the migration for the `Swag` table using the attributes specified in the deliverables below.
+You will need to create the migration for the `swags` table using the attributes specified in the deliverables below.
 
 ## Deliverables
 Deliverables use the notation `#` for instance methods, and `.` for class methods.
@@ -37,65 +37,70 @@ Remember: Active Record give your classes access to a lot of methods already! Ke
 
 ### Migrations
 
-Before working on the rest of the deliverables, you will need to create a migration for the `roles` table.
+Before working on the rest of the deliverables, you will need to create a migration for the `swags` table.
 
-- A `Role` belongs to a `Movie`, and a `Role` also belongs to an `Actor`. In your migration, create any columns your `roles` table will need to establish these relationships.
-- The `roles` table should also have:
+- A `Swag` belongs to a `Company`, and a `Swag` also belongs to an `Dev`. In your migration, create any columns your `swags` table will need to establish these relationships.
+- The `swags` table should also have:
   - A `salary` column that stores an integer.
   - A `character_name` column that stores a string.
 
-After creating your migration, use the `seeds.rb` file to create instances of your `Role` class so you can test your code.
+After creating your migration, use the `seeds.rb` file to create instances of your `Swag` class so you can test your code.
 
-**Once you've set up your `Role` class**, work on building out the following deliverables. Use Active Record association macros and Active Record query methods where appropriate.
+**Once you've set up your `Swag` class**, work on building out the following deliverables. Use Active Record association macros and Active Record query methods where appropriate.
 
 ### Object Relationship Methods
 
-#### Role
+#### Swag
 
-- `Role#actor`
-  - should return the `Actor` instance for this role
-- `Role#movie`
-  - should return the `Movie` instance for this role
+- `Swag#dev`
+  - should return the `Dev` instance for this swag
+- `Swag#company`
+  - should return the `Company` instance for this swag
 
-#### Movie
+#### Company
 
-- `Movie#roles`
-  - returns a collection of all the roles for the movie
-- `Movie#actors`
-  - returns a collection of all the actors who performed in the movie
+- `Company#swags`
+  - returns a collection of all the swags for the company
+- `Company#devs`
+  - returns a collection of all the devs who received swag from the company
 
-#### Actor
+#### Dev
 
-- `Actor#roles`
-  - should return a collection of all the roles that the actor has played
-- `Actor#movies`
-  - should return a collection of all the movies that the actor has performed in
+- `Dev#swags`
+  - should return a collection of all the swags that the dev has played
+- `Dev#companies`
+  - should return a collection of all the companies that the dev received swag from
+  - You do not have to worry about duplicates
 
 ### Aggregate and Association Methods
 
-#### Role
+#### Swag
 
-- `Role#credit`
-  - should return a string formatted as follows: `{insert character name}: Played by {insert actor name}`
+- `Swag#credit`
+  - should return a string formatted as follows: `{insert character name}: Played by {insert dev name}`
 
-#### Movie
+#### Company
 
-- `Movie#cast_role(actor, character_name, salary)`
-  - takes a `actor` (an instance of the `Actor` class), a `character_name` (string), and a `salary` (integer) as arguments, and creates a new `role` in the database associated with this movie and the actor
-- `Movie#all_credits`
-  - should return an Array of strings with all the roles for this movie formatted as follows: ["{insert character name}: Played by {insert actor name}", "{insert character name}: Played by {insert actor name}", ...]
-- `Movie#fire_actor(actor)`
-  - takes an `actor` (an instance of the `Actor` class) and removes their role from this movie
-  - you will have to delete a row from the `roles` table to get this to work!
+- `Company#give_swag(dev, item_name)`
+  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `swag` in the database associated with this company and the dev
+- `Company#all_credits`
+  - should return an Array of strings with all the swags for this company formatted as follows: ["{insert character name}: Played by {insert dev name}", "{insert character name}: Played by {insert dev name}", ...]
+- `Company#fire_dev(dev)`
+  - takes an `dev` (an instance of the `Dev` class) and removes their swag from this company
+  - you will have to delete a row from the `swags` table to get this to work!
 
-#### Actor
+#### Dev
 
-- `Actor#total_salary`
-  - returns the total salary for an actor based on the salary for each of their roles
-- `Actor#blockbusters`
-  - returns a collection of all the `Movie` instances the actor has performed in that have a `box_office_earnings` of over $50,000,000
-- `Actor.most_successful`
-  - returns *one* actor instance for the actor who has the highest total salary for all their roles
+- `Dev#throw_away(swag)`
+  - accepts a `Swag` instance and removes it from the database
+- `Dev#no_longer_a_fan_of(company)`
+  - accepts a `Company` instance as an argument, finds all of the swag associated with this dev and the company, and removes them all from the database
+- `Dev#total_salary`
+  - returns the total salary for an dev based on the salary for each of their swags
+- `Dev#blockbusters`
+  - returns a collection of all the `Company` instances the dev has performed in that have a `box_office_earnings` of over $50,000,000
+- `Dev.most_successful`
+  - returns *one* dev instance for the dev who has the highest total salary for all their swags
 
 ## Rubric
 
@@ -106,4 +111,3 @@ After creating your migration, use the `seeds.rb` file to create instances of yo
 3. Relationships properly created. Associations lead to the correct behavior but may have used the wrong macro or manually written out the methods the macro builds for us.
 4. Relationships properly created, save minor mistakes in advanced deliverables. May implement advanced query methods with iterators instead of using built-in methods.
 5. Relationships properly created. Advanced query methods use appropriate built-in methods.
-# swag-tracker-code-challenge
