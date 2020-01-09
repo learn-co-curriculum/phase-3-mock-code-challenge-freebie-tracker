@@ -50,9 +50,9 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 - `Company#initialize(name, founding_year)`
   - should initialize with a name (string) and founding_year (integer)
-- `Company.name`
+- `Company#name`
   - should return the name of the company
-- `Company.founding_year`
+- `Company#founding_year`
   - should return the founding_year
 - `Company.all`
   - Returns an array of all Company instances
@@ -61,7 +61,7 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 - `Dev#initialize(name)`
   - should initialize with a name (string)
-- `Dev.name`
+- `Dev#name`
   - should return the name of the dev
 - `Dev.all`
   - Returns an array of all Dev instances
@@ -70,7 +70,7 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 - `Freebie#initialize(item_name, company, dev)`
   - should initialize with a name (string), company (`Company` instance) and dev (`Dev` instance)
-- `Freebie.item_name`
+- `Freebie#item_name`
   - should return the item_name
 - `Freebie.all`
   - Returns an array of all Freebie instances
