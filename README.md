@@ -1,5 +1,7 @@
 # Mock Code Challenge - Freebie Tracker
 
+![Table of Freebies](image.jpg)
+
 For this assignment, we'll be working with a Freebie domain.
 
 As developers, when you attend hackathons, you'll realize they hand out a lot of free items (informally called *freebies*)! Let's make an app for developers that keeps track of all the freebies they obtain.
