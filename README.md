@@ -2,7 +2,7 @@
 
 For this assignment, we'll be working with a Freebie domain.
 
-As developers, when you attend hackathons, you'll realize they hand out a lot of freebies! Let's make an app for developers that keeps track of all the swag they obtain.
+As developers, when you attend hackathons, you'll realize they hand out a lot of free items (informally called *freebies*)! Let's make an app for developers that keeps track of all the freebies they obtain.
 
 We have three models: `Company`, `Dev`, and `Freebie`
 
@@ -46,15 +46,6 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 ### Initializers, Readers, and Writers
 
-#### Freebie
-
-- `Freebie#initialize(item_name, company, dev)`
-  - should initialize with a name (string), company (`Company` instance) and dev (`Dev` instance)
-- `Freebie.item_name`
-  - should return the item_name
-- `Freebie.all`
-  - Returns an array of all Freebie instances
-
 #### Company
 
 - `Company#initialize(name, founding_year)`
@@ -75,14 +66,16 @@ Some of the methods listed are provided to you in the starter code. You should c
 - `Dev.all`
   - Returns an array of all Dev instances
 
-### Object Relationship Methods
-
 #### Freebie
 
-- `Freebie#dev`
-  - should return the `Dev` instance for this swag
-- `Freebie#company`
-  - should return the `Company` instance for this swag
+- `Freebie#initialize(item_name, company, dev)`
+  - should initialize with a name (string), company (`Company` instance) and dev (`Dev` instance)
+- `Freebie.item_name`
+  - should return the item_name
+- `Freebie.all`
+  - Returns an array of all Freebie instances
+
+### Object Relationship Methods
 
 #### Company
 
@@ -90,7 +83,7 @@ Some of the methods listed are provided to you in the starter code. You should c
   - returns an array of all the freebies for the company
   - Having duplicate instances is fine
 - `Company#devs`
-  - returns an array of all the devs who received swag from the company
+  - returns an array of all the devs who received freebie from the company
   - Having duplicate instances is fine
 
 #### Dev
@@ -98,38 +91,38 @@ Some of the methods listed are provided to you in the starter code. You should c
 - `Dev#freebies`
   - should return an array of all the freebies that the dev owns
 - `Dev#companies`
-  - should return an array of all the companies that the dev received swag from
+  - should return an array of all the companies that the dev received freebie from
   - Having duplicate instances is fine
 
+#### Freebie
+
+- `Freebie#dev`
+  - should return the `Dev` instance for this freebie
+- `Freebie#company`
+  - should return the `Company` instance for this freebie
+
 ### Aggregate and Association Methods
+
+#### Company
+
+- `Company#give_freebie(dev, item_name)`
+  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `Freebie` instance in the database associated with this company and the dev
+- `Company.oldest_company`
+  - returns the `Company` instance with the earliest founding_year
+- `Company.most_given_away`
+  - should return an instance of `Company` which has the most freebie given out to devs
+
+#### Dev
+
+- `Dev#no_longer_a_fan_of(company)`
+  - accepts a `Company` instance as an argument, finds all of the freebie associated with this dev and the company, and deletes them all
+- `Dev.freebie_hoarder`
+  - returns *one* dev instance for the dev who owns the most amount of freebies
 
 #### Freebie
 
 - `Freebie#sentence`
-  - should return a string formatted as follows: `{insert dev's name} owns a {insert swag's item_name}`
-
-#### Company
-
-- `Company#give_swag(dev, item_name)`
-  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `Freebie` instance in the database associated with this company and the dev
-- `Company#where_is_our_swag`
-  - should return an Array of strings with all the freebies handed out from this company formatted as follows: `[{insert dev's name} owns a {insert swag's item_name}, {insert dev's name} owns a {insert swag's item_name}, ...]`
-- `Company#take_swag_back_from(dev)`
-  - takes a `Dev` instance and removes their swag from this company
-  - you will have to delete a row from the `freebies` table to get this to work!
-- `Company.oldest_company`
-  - returns the `Company` instance with the earliest founding_year
-- `Company.most_given_away`
-  - should return an instance of `Company` which has the most swag given out to devs
-
-#### Dev
-
-- `Dev#throw_away(swag)`
-  - accepts a `Freebie` instance and removes it from the database *only if the dev owns the given swag instance*
-- `Dev#no_longer_a_fan_of(company)`
-  - accepts a `Company` instance as an argument, finds all of the swag associated with this dev and the company, and removes them all from the database
-- `Dev.swag_hoarder`
-  - returns *one* dev instance for the dev who has the most amount of swag
+  - should return a string formatted as follows: `{insert dev's name} owns a {insert freebie's item_name} from {insert company's name}`
 
 ## Rubric
 
