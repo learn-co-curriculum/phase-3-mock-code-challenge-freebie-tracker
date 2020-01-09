@@ -1,22 +1,12 @@
-# Mock Code Challenge - Swag Tracker
+# Mock Code Challenge - Freebie Tracker
 
-For this assignment, we'll be working with a Swag domain.
+For this assignment, we'll be working with a Freebie domain.
 
 As developers, when you attend hackathons, you'll realize they hand out a lot of freebies! Let's make an app for developers that keeps track of all the swag they obtain.
 
-We have 3 models: `Company`, `Dev`, and `Swag`
+We have three models: `Company`, `Dev`, and `Freebie`
 
-A `Company` has many `Swag` to give out,
-A `Dev` has many `Swag` they own, and
-A piece of `Swag` is made by (belongs to) a `Company` and owned by (belongs to) a `Dev`
-
-`Company` - `Dev` is a many-to-many relationship.
-
-
-
-We have three models: `Company`, `Dev`, and `Swag`
-
-For our purposes, a `Company` has many `Swag`s, a `Dev` has many `Swag`s, and a `Swag` belongs to a `Dev` and to a `Company`.
+For our purposes, a `Company` has many `Freebie`s, a `Dev` has many `Freebie`s, and a `Freebie` belongs to a `Dev` and to a `Company`.
 
 `Company` - `Dev` is a many to many relationship.
 
@@ -56,12 +46,14 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 ### Initializers, Readers, and Writers
 
-#### Swag
+#### Freebie
 
-- `Swag#initialize(item_name, company, dev)`
+- `Freebie#initialize(item_name, company, dev)`
   - should initialize with a name (string), company (`Company` instance) and dev (`Dev` instance)
-- `Swag.item_name`
+- `Freebie.item_name`
   - should return the item_name
+- `Freebie.all`
+  - Returns an array of all Freebie instances
 
 #### Company
 
@@ -69,57 +61,62 @@ Some of the methods listed are provided to you in the starter code. You should c
   - should initialize with a name (string) and founding_year (integer)
 - `Company.name`
   - should return the name of the company
-- `Swag.founding_year`
+- `Company.founding_year`
   - should return the founding_year
-
+- `Company.all`
+  - Returns an array of all Company instances
 
 #### Dev
 
 - `Dev#initialize(name)`
   - should initialize with a name (string)
+- `Dev.name`
+  - should return the name of the dev
+- `Dev.all`
+  - Returns an array of all Dev instances
 
 ### Object Relationship Methods
 
-#### Swag
+#### Freebie
 
-- `Swag#dev`
+- `Freebie#dev`
   - should return the `Dev` instance for this swag
-- `Swag#company`
+- `Freebie#company`
   - should return the `Company` instance for this swag
 
 #### Company
 
-- `Company#swags`
-  - returns a collection of all the swags for the company
+- `Company#freebies`
+  - returns an array of all the freebies for the company
   - Having duplicate instances is fine
 - `Company#devs`
-  - returns a collection of all the devs who received swag from the company
+  - returns an array of all the devs who received swag from the company
   - Having duplicate instances is fine
 
 #### Dev
 
-- `Dev#swags`
-  - should return a collection of all the swags that the dev owns
+- `Dev#freebies`
+  - should return an array of all the freebies that the dev owns
 - `Dev#companies`
-  - should return a collection of all the companies that the dev received swag from
+  - should return an array of all the companies that the dev received swag from
   - Having duplicate instances is fine
 
 ### Aggregate and Association Methods
 
-#### Swag
+#### Freebie
 
-- `Swag#sentence`
+- `Freebie#sentence`
   - should return a string formatted as follows: `{insert dev's name} owns a {insert swag's item_name}`
 
 #### Company
 
 - `Company#give_swag(dev, item_name)`
-  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `Swag` instance in the database associated with this company and the dev
+  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `Freebie` instance in the database associated with this company and the dev
 - `Company#where_is_our_swag`
-  - should return an Array of strings with all the swags handed out from this company formatted as follows: `[{insert dev's name} owns a {insert swag's item_name}, {insert dev's name} owns a {insert swag's item_name}, ...]`
+  - should return an Array of strings with all the freebies handed out from this company formatted as follows: `[{insert dev's name} owns a {insert swag's item_name}, {insert dev's name} owns a {insert swag's item_name}, ...]`
 - `Company#take_swag_back_from(dev)`
   - takes a `Dev` instance and removes their swag from this company
-  - you will have to delete a row from the `swags` table to get this to work!
+  - you will have to delete a row from the `freebies` table to get this to work!
 - `Company.oldest_company`
   - returns the `Company` instance with the earliest founding_year
 - `Company.most_given_away`
@@ -128,7 +125,7 @@ Some of the methods listed are provided to you in the starter code. You should c
 #### Dev
 
 - `Dev#throw_away(swag)`
-  - accepts a `Swag` instance and removes it from the database *only if the dev owns the given swag instance*
+  - accepts a `Freebie` instance and removes it from the database *only if the dev owns the given swag instance*
 - `Dev#no_longer_a_fan_of(company)`
   - accepts a `Company` instance as an argument, finds all of the swag associated with this dev and the company, and removes them all from the database
 - `Dev.swag_hoarder`
