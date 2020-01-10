@@ -108,15 +108,15 @@ Some of the methods listed are provided to you in the starter code. You should c
   - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string) as arguments, and creates a new `Freebie` instance associated with this company and the given dev
 - `Company.oldest_company`
   - returns the `Company` instance with the earliest founding year
-- `Company.most_given_away`
+- `Company.most_distributed`
   - should return an instance of `Company` which has the most freebies given out to devs
 
 #### Dev
 
-- `Dev#no_longer_a_fan_of(company)`
-  - accepts a `Company` instance as an argument, finds all of the freebies associated with this dev and the company, and deletes them all
 - `Dev#received_one?(item_name)`
   - accepts an item_name (string) and returns true if any of the freebies associated with the dev has that item_name, otherwise returns false
+- `Dev#give_away(dev, freebie)`
+  - accepts a `Dev` instance and a `Freebie` instance, changes the freebie's dev to be the given dev
 - `Dev.freebie_hoarder`
   - returns *one* dev instance for the dev who owns the most amount of freebies
 
