@@ -71,7 +71,7 @@ Some of the methods listed are provided to you in the starter code. You should c
 #### Freebie
 
 - `Freebie#initialize(item_name, company, dev)`
-  - should initialize with a name (string), company (`Company` instance) and dev (`Dev` instance)
+  - should initialize with an item name (string), company (`Company` instance) and dev (`Dev` instance)
 - `Freebie#item_name`
   - should return the name of the item, ie. `"sticker"` or `"water bottle"`
 - `Freebie.all`
@@ -113,14 +113,16 @@ Some of the methods listed are provided to you in the starter code. You should c
 
 #### Dev
 
-- `Dev.freebie_hoarder`
-  - returns *one* dev instance for the dev who owns the most amount of freebies
 - `Dev#no_longer_a_fan_of(company)`
   - accepts a `Company` instance as an argument, finds all of the freebies associated with this dev and the company, and deletes them all
+- `Dev#received_one?(item_name)`
+  - accepts an item_name (string) and returns true if any of the freebies associated with the dev has that item_name, otherwise returns false
+- `Dev.freebie_hoarder`
+  - returns *one* dev instance for the dev who owns the most amount of freebies
 
 #### Freebie
 
-- `Freebie#sentence`
+- `Freebie#print_details`
   - should return a string formatted as follows: `{insert dev's name} owns a {insert freebie's item_name} from {insert company's name}`
 
 ## Rubric
