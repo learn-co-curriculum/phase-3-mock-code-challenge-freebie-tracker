@@ -116,9 +116,9 @@ appropriate (i.e. `has_many`, `has_many through`, and `belongs_to`).
 #### Freebie
 
 - `Freebie#dev`
-  - should return the `Dev` instance for this Freebie
+  - returns the `Dev` instance for this Freebie
 - `Freebie#company`
-  - should return the `Company` instance for this Freebie
+  - returns the `Company` instance for this Freebie
 
 #### Company
 
@@ -130,9 +130,9 @@ appropriate (i.e. `has_many`, `has_many through`, and `belongs_to`).
 #### Dev
 
 - `Dev#freebies`
-  - should return a collection of all the freebies that the Dev has collected
+  - returns a collection of all the freebies that the Dev has collected
 - `Dev#companies`
-  - should return a collection of all the companies that the Dev has collected
+  - returns a collection of all the companies that the Dev has collected
     freebies from
 
 Use `rake console` and check that these methods work before proceeding. For
@@ -150,15 +150,12 @@ companies for the first dev in the database based on your seed data; and
 
 #### Company
 
-- `Company#give_freebie(dev, item_name)`
-  - takes a `dev` (an instance of the `Dev` class) and an `item_name` (string)
+- `Company#give_freebie(dev, item_name, value)`
+  - takes a `dev` (an instance of the `Dev` class), an `item_name` (string), and a `value`
     as arguments, and creates a new `Freebie` instance associated with this
     company and the given dev
 - `Company.oldest_company`
   - returns the `Company` instance with the earliest founding year
-- `Company.most_distributed`
-  - should return an instance of `Company` which has the most freebies given out
-    to devs
 
 #### Dev
 
@@ -168,5 +165,3 @@ companies for the first dev in the database based on your seed data; and
 - `Dev#give_away(dev, freebie)`
   - accepts a `Dev` instance and a `Freebie` instance, changes the freebie's dev
     to be the given dev
-- `Dev.freebie_hoarder`
-  - returns _one_ `Dev` instance for the dev who owns the most amount of freebies

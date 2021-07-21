@@ -21,3 +21,9 @@ gem "sqlite3", "~> 1.4"
 gem "require_all"
 
 gem "pry"
+
+# These gems will only be used when we are running tests
+group :test do
+  gem "database_cleaner"
+  gem "rspec"
+end
