@@ -1,8 +1,6 @@
-# require the Bundler module
+ENV["RACK_ENV"] ||= "development"
+
 require 'bundler/setup'
+Bundler.require(:default, ENV["RACK_ENV"])
 
-# require all gems defined in the Gemfile
-Bundler.require
-
-# require all files in the top-level app directory
-require_rel '../app'
+require_all 'app/models'

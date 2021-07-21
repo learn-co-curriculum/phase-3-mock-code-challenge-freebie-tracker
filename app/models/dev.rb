@@ -1,8 +1,3 @@
-class Dev
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
-  end
+class Dev < ActiveRecord::Base
 
 end
