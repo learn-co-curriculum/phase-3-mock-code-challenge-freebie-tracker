@@ -113,6 +113,9 @@ deliverables.
 Use Active Record association macros and Active Record query methods where
 appropriate (i.e. `has_many`, `has_many through`, and `belongs_to`).
 
+**Note**: The plural of "freebie" is "freebies" and the singular of "freebies"
+is "freebie".
+
 #### Freebie
 
 - `Freebie#dev`
