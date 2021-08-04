@@ -16,8 +16,6 @@ and a `Freebie` belongs to a `Dev` and to a `Company`.
 **Note**: You should draw your domain on paper or on a whiteboard _before you
 start coding_. Remember to identify a single source of truth for your data.
 
-![Table of Freebies](image.jpg)
-
 ## Topics
 
 - Active Record Migrations
