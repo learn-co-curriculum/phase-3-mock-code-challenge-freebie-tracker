@@ -165,4 +165,5 @@ companies for the first dev in the database based on your seed data; and
     associated with the dev has that `item_name`, otherwise returns false
 - `Dev#give_away(dev, freebie)`
   - accepts a `Dev` instance and a `Freebie` instance, changes the freebie's dev
-    to be the given dev
+    to be the given dev; your code should only make the change if the freebie
+    belongs to the dev who's giving it away
