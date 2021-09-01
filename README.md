@@ -1,5 +1,14 @@
 # Phase 3 Active Record Mock Code Challenge: Freebie Tracker
 
+## Learning Goals
+
+- Write Active Record Migrations
+- Connect between tables using Active Record Associations
+- Write class and instance methods using Active Record
+- Use Active Record to query the database
+
+## Introduction
+
 For this assignment, we'll be working with a freebie domain.
 
 As developers, when you attend hackathons, you'll realize they hand out a lot of
@@ -15,13 +24,6 @@ and a `Freebie` belongs to a `Dev` and to a `Company`.
 
 **Note**: You should draw your domain on paper or on a whiteboard _before you
 start coding_. Remember to identify a single source of truth for your data.
-
-## Topics
-
-- Active Record Migrations
-- Active Record Associations
-- Class and Instance Methods
-- Active Record Querying
 
 ## Instructions
 
