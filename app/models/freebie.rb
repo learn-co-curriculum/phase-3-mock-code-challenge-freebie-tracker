@@ -3,6 +3,6 @@ class Freebie < ActiveRecord::Base
   belongs_to :company
 
   def print_details
-    "#{dev.name} owns a #{item_name} from #{company.name}"
+    "#{dev.name} owns a #{name} from #{company.name}"
   end
 end
