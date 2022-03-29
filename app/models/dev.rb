@@ -1,6 +1,6 @@
 class Dev < ActiveRecord::Base
     has_many :freebies 
-    has_many :companies, through: :freebies
+    has_many :companies through: :freebies
 
     def recieved_one?(item)
         self.freebies.pluck(:item_name).include?(item)

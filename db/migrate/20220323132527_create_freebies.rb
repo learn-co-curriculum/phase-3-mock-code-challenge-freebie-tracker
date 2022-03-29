@@ -3,7 +3,7 @@ class CreateFreebies < ActiveRecord::Migration[6.1]
     create_table :freebies do |t|
       t.references :dev
       t.references :company
-      t.string :item_name
+      t.string :itemname
       t.integer :value
     end
   end

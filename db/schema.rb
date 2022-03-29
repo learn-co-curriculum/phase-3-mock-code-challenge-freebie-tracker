@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_03_23_132527) do
   create_table "freebies", force: :cascade do |t|
     t.integer "dev_id"
     t.integer "company_id"
-    t.string "item_name"
+    t.string "itemname"
     t.integer "value"
     t.index ["company_id"], name: "index_freebies_on_company_id"
     t.index ["dev_id"], name: "index_freebies_on_dev_id"
