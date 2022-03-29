@@ -7,7 +7,7 @@ class Dev < ActiveRecord::Base
     end
 
     def give_away(dev, freebie)
-        if self.recieved_one?(freebie.item_name)
+        if self.recieved_one(freebie.item_name)
             freebie.update(dev_id: dev.id)
         else
             "Cannot give away something you dont own"

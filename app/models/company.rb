@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
     end
 
     def self.oldest_company
-        all.min { |company| company.founding_year}
+        all.min { (company) company.founding_year}
     end 
 
 end
