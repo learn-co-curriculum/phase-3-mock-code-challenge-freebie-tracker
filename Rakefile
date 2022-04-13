@@ -3,6 +3,19 @@ require 'sinatra/activerecord/rake'
 
 desc 'starts a Pry console'
 task :console do
+
+  puts"
+  
+
+
+
+
+
+
+  
+  "
+  
   ActiveRecord::Base.logger = Logger.new(STDOUT)
+
   Pry.start
 end
