@@ -34,8 +34,8 @@ in a suggested order, but you can feel free to tackle the ones you think are
 easiest. Be careful: some of the later methods rely on earlier ones.
 
 **Remember!** This code challenge does not have tests. You cannot run `rspec`
-and you cannot run `learn`. You'll need to create your own sample instances so
-that you can try out your code on your own. Make sure your associations and
+and you cannot run `learn test`. You'll need to create your own sample instances
+so that you can try out your code on your own. Make sure your associations and
 methods work in the console before submitting.
 
 We've provided you with a tool that you can use to test your code. To use it,
