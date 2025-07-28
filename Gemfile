@@ -21,3 +21,5 @@ gem "sqlite3", "~> 1.4"
 gem "require_all"
 
 gem "pry"
+
+gem 'rubocop'
