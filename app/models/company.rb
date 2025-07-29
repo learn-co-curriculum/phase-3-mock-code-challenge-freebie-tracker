@@ -11,4 +11,8 @@ class Company < ActiveRecord::Base
   # def devs
   #   Dev.where(id: self.freebies.pluck(:dev_id))
   # end
+
+  def give_freebie(dev, item_name, value)
+    Freebie.create(company: self, dev: dev, item_name: item_name, value: value)
+  end
 end
