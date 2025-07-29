@@ -11,4 +11,8 @@ class Dev < ActiveRecord::Base
   # def companies
   #   Company.where(id: self.freebies.pluck(:company_id))
   # end
+
+  def received_one?(item_name)
+    freebies.pluck(:item_name).any?(item_name)
+  end
 end
