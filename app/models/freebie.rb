@@ -11,4 +11,8 @@ class Freebie < ActiveRecord::Base
   # def company
   #   Company.find(self.company_id)
   # end
+
+  def print_details
+    "#{dev.name} owns a #{item_name} from #{company.name}"
+  end
 end
