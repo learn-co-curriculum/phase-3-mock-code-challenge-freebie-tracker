@@ -15,4 +15,11 @@ class Dev < ActiveRecord::Base
   def received_one?(item_name)
     freebies.pluck(:item_name).any?(item_name)
   end
+
+  def give_away(dev, freebie)
+    freebie = Freebie.find(freebie.id)
+    return if freebie.dev != self
+
+    freebie.update(dev: dev)
+  end
 end
