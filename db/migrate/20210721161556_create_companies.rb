@@ -3,6 +3,7 @@ class CreateCompanies < ActiveRecord::Migration[6.1]
     create_table :companies do |t|
       t.string :name
       t.integer :founding_year
+      t.timestamps
     end
   end
 end
