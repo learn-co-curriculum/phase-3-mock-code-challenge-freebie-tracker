@@ -10,4 +10,8 @@ class Company < ActiveRecord::Base
       company_id: self.id
       )
   end
+
+  def self.oldest_company
+    self.order(:founding_year).first
+  end
 end
