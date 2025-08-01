@@ -21,3 +21,12 @@ gem "sqlite3", "~> 1.4"
 gem "require_all"
 
 gem "pry"
+
+# Added to silence warnings"
+gem "ostruct"
+
+gem "mutex_m"
+
+gem "bigdecimal"
+
+gem "fiddle"
